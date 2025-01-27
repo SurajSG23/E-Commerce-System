@@ -132,7 +132,7 @@ function CreateOrderDetail() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+          className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 cursor-pointer"
         >
           {loading ? "Adding..." : "Add Order Detail"}
         </button>
@@ -161,7 +161,7 @@ function CreateOrderDetail() {
       </div>
       <button
         onClick={handleDelete}
-        className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 mt-4"
+        className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 mt-4 cursor-pointer"
       >
         Delete All Order Details
       </button>
