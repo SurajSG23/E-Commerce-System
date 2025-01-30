@@ -72,7 +72,7 @@ const MainPage = () => {
         <div className="w-1/4">
           <label
             htmlFor="category"
-            className="block text-gray-700 font-semibold mb-2"
+            className="block text-gray-700 font-semibold mb-2 text-center"
           >
             Select Category
           </label>
@@ -80,7 +80,7 @@ const MainPage = () => {
             id="category"
             value={selectedCategory}
             onChange={handleCategoryChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-[10vw] p-2 border border-gray-300 rounded-md flex text-center font-bold"
           >
             <option value="all">All</option>
             {categories.map((category) => (
@@ -97,17 +97,23 @@ const MainPage = () => {
         </div>
 
         {/* Products List */}
-        <div className="w-3/4">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4 flex justify-center">
             Products
           </h2>
           {Array.isArray(products) && products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 cursor-pointer" >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map((product) => (
                 <div
                   key={product.product_id}
-                  className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl hover:scale-105 transition-all duration-150 " style={{boxShadow:"2px 2px 10px purple"}}
+                  className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl hover:scale-105 transition-all duration-150  cursor-pointer"
+                  style={{ boxShadow: "2px 2px 10px purple" }}
                 >
+                  <img
+                    src={`${product.name}.jpg`}
+                    alt="No image"
+                    style={{ aspectRatio: "1/1" }}
+                  />
                   <h3 className="text-lg font-bold text-gray-800 mb-2">
                     {product.name || "Unnamed Product"}
                   </h3>
@@ -115,15 +121,16 @@ const MainPage = () => {
                     <strong>Product ID:</strong> {product.product_id}
                   </p>
                   <p className="text-gray-600">
-                    <strong>Price:</strong> ₹ {product.price}
-                  </p>
-                  <p className="text-gray-600">
                     <strong>Stock:</strong> {product.stock || 0}
                   </p>
-                  <p className="text-gray-600">
-                    <strong>Category:</strong>{" "}
-                    {product.category_id === 1 ? "Electronics" : "Clothing"}
-                  </p>
+                  <div className="flex gap-1">
+                    <p className="text-gray-600 bg-green-400 text-center p-1 w-[125px] items-center justify-center flex mx-auto rounded-full">
+                      ₹ {product.price}
+                    </p>
+                    <p className="text-gray-600 bg-amber-400 text-center p-1 w-[120px] items-center justify-center flex mx-auto rounded-full">
+                      {product.category_id === 1 ? "Electronics" : "Clothing"}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
