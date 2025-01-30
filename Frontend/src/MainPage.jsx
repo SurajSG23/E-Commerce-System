@@ -114,7 +114,7 @@ const MainPage = () => {
                     alt="No image"
                     style={{ aspectRatio: "1/1" }}
                   />
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2 text-center">
                     {product.name || "Unnamed Product"}
                   </h3>
                   <p className="text-gray-600">

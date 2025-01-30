@@ -84,7 +84,7 @@ function CreateOrderDetail() {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto">
+    <div className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto w-[24.5vw]">
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">
         Add Product to Order
       </h2>
