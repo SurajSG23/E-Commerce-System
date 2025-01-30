@@ -102,11 +102,11 @@ const MainPage = () => {
             Products
           </h2>
           {Array.isArray(products) && products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 cursor-pointer">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 cursor-pointer" >
               {products.map((product) => (
                 <div
                   key={product.product_id}
-                  className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl hover:scale-105 transition-all duration-150 "
+                  className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl hover:scale-105 transition-all duration-150 " style={{boxShadow:"2px 2px 10px purple"}}
                 >
                   <h3 className="text-lg font-bold text-gray-800 mb-2">
                     {product.name || "Unnamed Product"}
@@ -122,7 +122,7 @@ const MainPage = () => {
                   </p>
                   <p className="text-gray-600">
                     <strong>Category:</strong>{" "}
-                    {product.category_id === 2 ? "Electronics" : "Clothing"}
+                    {product.category_id === 1 ? "Electronics" : "Clothing"}
                   </p>
                 </div>
               ))}
