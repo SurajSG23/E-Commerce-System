@@ -43,7 +43,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-100 text-gray-900 p-4">
+      <div className="min-h-screen bg-gradient-to-r from-indigo-300 via-purple-500 to-pink-500 text-gray-900 p-4">
         <h1 className="text-4xl font-bold text-center text-white bg-indigo-600 p-4 rounded-lg mb-6">
           E-commerce System
         </h1>

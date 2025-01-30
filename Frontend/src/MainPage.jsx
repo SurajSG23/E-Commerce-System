@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { fetchUsers, fetchProductsByCategory, fetchOrders } from "./api"; // Import from API file
+import {
+  fetchUsers,
+  fetchProductsByCategory,
+  fetchOrders,
+  fetchCategories,
+} from "./api"; // Import from API file
 import CreateOrder from "./CreateOrder";
 import { useLocation } from "react-router-dom";
 
@@ -9,14 +14,15 @@ const MainPage = () => {
   const [orders, setOrders] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const location = useLocation();
-
+  const [categories, setCategories] = useState([]);
   // Fetch data on load
   useEffect(() => {
     const fetchData = async () => {
       try {
         const usersResponse = await fetchUsers();
         setUsers(usersResponse.data);
-
+        const categoriesResponse = await fetchCategories();
+        setCategories(categoriesResponse.data);
         const productsResponse = await fetchProductsByCategory(
           selectedCategory
         );
@@ -77,8 +83,16 @@ const MainPage = () => {
             className="w-full p-2 border border-gray-300 rounded-md"
           >
             <option value="all">All</option>
-            <option value="electronics">Electronics</option>
-            <option value="clothing">Clothing</option>
+            {categories.map((category) => (
+              <option
+                key={category.category_id}
+                value={
+                  category.name == "Electronics" ? "electronics" : "clothing"
+                }
+              >
+                {category.name}
+              </option>
+            ))}
           </select>
         </div>
 
