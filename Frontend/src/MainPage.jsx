@@ -4,6 +4,7 @@ import {
   fetchProductsByCategory,
   fetchOrders,
   fetchCategories,
+  fetchProducts,
 } from "./api"; // Import from API file
 import CreateOrder from "./CreateOrder";
 import { useLocation } from "react-router-dom";
@@ -23,7 +24,7 @@ const MainPage = () => {
         setUsers(usersResponse.data);
         const categoriesResponse = await fetchCategories();
         setCategories(categoriesResponse.data);
-        const productsResponse = await fetchProductsByCategory(
+        const productsResponse = await fetchProducts(
           selectedCategory
         );
         console.log(productsResponse.data.data);
