@@ -16,6 +16,7 @@ const pool = mysql.createPool({
   host: "e-commerce-surajdhanva23-d67d.f.aivencloud.com",
   user: "avnadmin",
   password: process.env.CLOUD_MYSQL_PASSWORD,
+  port:25781,
   database: "ECommerceSystem",
   waitForConnections: true,
   connectionLimit: 10,
@@ -30,7 +31,10 @@ const getConnection = () => {
 // ROUTES
 
 // Fetch all products
-app.get("/", (req, res)=>{
+app.get("/", async(req, res)=>{
+  console.log(process.env.CLOUD_MYSQL_PASSWORD)
+  const [results] = await getConnection().query("SELECT * FROM Users");
+  res.json(results);
   res.send("Hello World")
 })
 app.get("/products", async (req, res) => {
@@ -79,10 +83,12 @@ app.post("/product", async (req, res) => {
 app.get("/users", async (req, res) => {
   try {
     const [results] = await getConnection().query(
-      "SELECT user_id, nickname, password, email, phone, address, created_at FROM Users"
+      "SELECT * FROM Users"
     );
     res.json(results);
+    res.json(results);
   } catch (err) {
+    console.log(err);
     res.status(500).json({ error: "Failed to fetch users" });
   }
 });
