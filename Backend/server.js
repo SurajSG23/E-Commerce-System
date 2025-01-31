@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 const port = 5000;
 
 app.use(cors({
-  origin: "*"
+  origin: "https://e-commerce-system-qupm.vercel.app"
 }
 ));
 dotenv.config()
