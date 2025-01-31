@@ -37,6 +37,7 @@ app.get("/", async(req, res)=>{
   res.json(results);
   res.send("Hello World")
 })
+
 app.get("/products", async (req, res) => {
   try {
     const [results] = await getConnection().query("SELECT * FROM Products");
