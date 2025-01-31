@@ -5,7 +5,10 @@ const app = express();
 const dotenv = require("dotenv");
 const port = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}
+));
 dotenv.config()
 app.use(express.json());
 
