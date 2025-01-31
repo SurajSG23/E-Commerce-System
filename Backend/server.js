@@ -2,15 +2,17 @@ const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
 const app = express();
+const dotenv = require("dotenv");
 const port = 5000;
 
 app.use(cors());
+dotenv.config()
 app.use(express.json());
 
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "suraj@231044",
+  password: process.env.CLOUD_MYSQL_PASSWORD,
   database: "ECommerceSystem",
   waitForConnections: true,
   connectionLimit: 10,
