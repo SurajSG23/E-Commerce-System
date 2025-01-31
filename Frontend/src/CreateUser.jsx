@@ -33,7 +33,7 @@ function CreateUser({ refreshUsers }) {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     setLoading(true);
 
     createUser(user)

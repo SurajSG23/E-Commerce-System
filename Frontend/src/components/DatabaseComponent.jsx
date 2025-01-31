@@ -8,7 +8,7 @@ const DatabaseComponent = () => {
 
   useEffect(() => {
     // Call the backend API to fetch data
-    axios.get('http://localhost:5000/data')  // Adjust this URL based on your backend
+    axios.get('https://e-commerce-system-nine.vercel.app/data')  // Adjust this URL based on your backend
       .then((response) => {
         setData(response.data);
       })

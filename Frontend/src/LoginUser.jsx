@@ -21,7 +21,7 @@ function LoginUser() {
     setLoading(true);
 
     axios
-      .post("http://localhost:5000/login", {
+      .post("https://e-commerce-system-nine.vercel.app/login", {
         email: user.email,
         password: user.password,
       })
