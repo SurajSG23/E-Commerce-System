@@ -27,6 +27,9 @@ const getConnection = () => {
 // ROUTES
 
 // Fetch all products
+app.get("/", (req, res)=>{
+  res.send("Hello World")
+})
 app.get("/products", async (req, res) => {
   try {
     const [results] = await getConnection().query("SELECT * FROM Products");
