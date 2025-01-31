@@ -251,7 +251,7 @@ app.delete("/order-detail", async (req, res) => {
   }
 });
 
-// CREATE VIEW electronics_products AS
+// CREATE VIEW  electronics_products AS
 // SELECT * FROM Products WHERE category_id = 1;
 
 // CREATE VIEW clothing_products AS
