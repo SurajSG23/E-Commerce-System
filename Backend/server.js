@@ -13,8 +13,8 @@ dotenv.config()
 app.use(express.json());
 
 const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
+  host: "e-commerce-surajdhanva23-d67d.f.aivencloud.com",
+  user: "avnadmin",
   password: process.env.CLOUD_MYSQL_PASSWORD,
   database: "ECommerceSystem",
   waitForConnections: true,
